@@ -34,6 +34,7 @@
     :init
     (progn
       (setq diff-hl-side 'left)
+      (setq diff-hl-ask-before-revert-hunk 'nil)
       (when (eq version-control-diff-tool 'diff-hl)
         (when (configuration-layer/package-usedp 'magit)
           (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))

@@ -11,7 +11,7 @@
 
 (setq git-packages
       '(
-        evil-magit
+        ;; evil-magit
         fill-column-indicator
         gitattributes-mode
         gitconfig-mode
@@ -29,11 +29,11 @@
         smeargle
         ))
 
-(defun git/init-evil-magit ()
-  (with-eval-after-load 'magit
-    (require 'evil-magit)
-    (evil-define-key 'motion magit-mode-map
-      (kbd dotspacemacs-leader-key) spacemacs-default-map)))
+;; (defun git/init-evil-magit ()
+;;   (with-eval-after-load 'magit
+;;     (require 'evil-magit)
+;;     (evil-define-key 'motion magit-mode-map
+;;       (kbd dotspacemacs-leader-key) spacemacs-default-map)))
 
 (defun git/post-init-fill-column-indicator ()
   (add-hook 'git-commit-mode-hook 'fci-mode))

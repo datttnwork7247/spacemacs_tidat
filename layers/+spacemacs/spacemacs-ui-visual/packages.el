@@ -173,7 +173,7 @@
             neo-smart-open t
             neo-dont-be-alone t
             neo-persist-show nil
-            neo-show-hidden-files t
+            neo-show-hidden-files nil
             neo-auto-indent-point t
             neo-modern-sidebar t
             neo-vc-integration nil)

@@ -313,6 +313,25 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         (interactive)
         (spacemacs/helm-buffers-smart-do-search t))
 
+      ;; Search in current dir  ----------------------------------------------
+      (defun spacemacs/helm-dir-do-ack ()
+        "Search in current directory with `ack'."
+        (interactive)
+        ;; (let ((default-directory dir))
+        (let ((dir default-directory))
+          (if dir
+              (spacemacs/helm-files-do-ack dir)
+            (message "error: Could not find directory."))))
+
+      (defun spacemacs/helm-dir-do-ack-region-or-symbol ()
+        "Search in current directory with `ack' using a default input."
+        (interactive)
+        (let ((dir default-directory))
+          (if dir
+              (spacemacs//helm-do-ag-region-or-symbol
+               'spacemacs/helm-files-do-ack dir)
+            (message "error: Could not find directory."))))
+
       ;; Search in project ---------------------------------------------------
 
       (defun spacemacs/helm-project-do-ag ()
@@ -429,6 +448,10 @@ Search for a search tool in the order provided by `dotspacemacs-search-tools'."
         "skF" 'spacemacs/helm-files-do-ack-region-or-symbol
         "stf" 'spacemacs/helm-files-do-pt
         "stF" 'spacemacs/helm-files-do-pt-region-or-symbol
+        ;; current directory scope
+        ;; @TODO: expand for ag and others
+        "skd" 'spacemacs/helm-dir-do-ack
+        "skD" 'spacemacs/helm-dir-do-ack-region-or-symbol
         ;; current project scope
         "/"   'spacemacs/helm-project-smart-do-search
         "*"   'spacemacs/helm-project-smart-do-search-region-or-symbol

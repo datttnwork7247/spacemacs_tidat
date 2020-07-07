@@ -25,7 +25,7 @@
         (shell :location built-in)
         shell-pop
         (term :location built-in)
-        xterm-color
+        ;; xterm-color
         vi-tilde-fringe
         ))
 

@@ -12,3 +12,6 @@
 ;; variables
 
 (spacemacs|define-jump-handlers erlang-mode)
+
+(defvar edts-auto-start-minor-mode nil
+  "If non nil then edts mode will start automatically when opening edts project file.")

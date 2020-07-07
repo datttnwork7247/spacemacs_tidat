@@ -41,7 +41,7 @@
     :init
     (progn
       (setq ahs-case-fold-search nil
-            ahs-default-range 'ahs-range-whole-buffer
+            ahs-default-range 'ahs-range-display ;'ahs-range-whole-buffer 
             ;; by default disable auto-highlight of symbol
             ;; current symbol can always be highlighted with `SPC s h'
             ahs-idle-timer 0

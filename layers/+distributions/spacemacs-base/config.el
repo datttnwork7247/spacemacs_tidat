@@ -78,6 +78,8 @@ It runs `tabulated-list-revert-hook', then calls `tabulated-list-print'."
 (setq-default indent-tabs-mode nil
               tab-width 2)
 
+(setq-default evil-escape-key-sequence "jk")
+
 ;; Text
 (setq longlines-show-hard-newlines t)
 
