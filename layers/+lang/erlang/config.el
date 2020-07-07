@@ -25,6 +25,7 @@
 
 (spacemacs|define-jump-handlers erlang-mode)
 
+
 (defvar erlang-fill-column 80
   "Column beyond which automatic line-wrapping should happen.")
 

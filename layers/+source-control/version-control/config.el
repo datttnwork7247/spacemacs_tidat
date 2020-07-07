@@ -27,11 +27,11 @@
 (defvar version-control-global-margin t
   "If non-nil, will show diff margins globally.")
 
-(defvar version-control-diff-tool 'git-gutter+
+(defvar version-control-diff-tool 'diff-hl
   "Options are `git-gutter', `git-gutter+', and `diff-hl' to show
 version-control markers.")
 
-(defvar version-control-diff-side 'right
+(defvar version-control-diff-side 'left
   "Side on which to show version-control markers.
 Options are `left' and `right'.")
 

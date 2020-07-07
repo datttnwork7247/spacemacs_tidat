@@ -137,17 +137,30 @@
     :defer t
     :init
     (progn
-      (spacemacs/set-leader-keys "gv=" 'diff-hl-diff-goto-hunk)
-      (if version-control-global-margin
-          (progn
-            (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-            (run-with-idle-timer 1 nil 'global-diff-hl-mode))
-        (run-with-idle-timer 1 nil 'diff-hl-margin-mode)))
-    :config
-    (progn
-      (spacemacs|do-after-display-system-init
-       (setq diff-hl-side (if (eq version-control-diff-side 'left)
-                              'left 'right))))))
+;;       (spacemacs/set-leader-keys "gv=" 'diff-hl-diff-goto-hunk)
+;;       (if version-control-global-margin
+;;           (progn
+;;             (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+;;             (run-with-idle-timer 1 nil 'global-diff-hl-mode))
+;;         (run-with-idle-timer 1 nil 'diff-hl-margin-mode)))
+;;     :config
+;;     (progn
+;;       (spacemacs|do-after-display-system-init
+;;        (setq diff-hl-side (if (eq version-control-diff-side 'left)
+;;                               'left 'right))))))
+;; 
+      (setq diff-hl-side 'left)
+      (setq diff-hl-ask-before-revert-hunk 'nil)
+      (when (eq version-control-diff-tool 'diff-hl)
+        (when (configuration-layer/package-usedp 'magit)
+          (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+        (when version-control-global-margin
+          (global-diff-hl-mode))
+        (diff-hl-margin-mode)
+        (spacemacs|do-after-display-system-init
+         (setq diff-hl-side (if (eq version-control-diff-side 'left)
+                                'left 'right))
+         (diff-hl-margin-mode -1))))))
 
 (defun version-control/post-init-evil-unimpaired ()
   (define-key evil-normal-state-map (kbd "[ h") 'spacemacs/vcs-previous-hunk)
